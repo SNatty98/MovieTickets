@@ -278,7 +278,7 @@ namespace MovieTickets.Data
 
                         new Actor_Movie()
                         {
-                            ActorId = 1,
+                            ActorId = 2,
                             MovieId = 4
                         },
                         new Actor_Movie()
@@ -295,7 +295,7 @@ namespace MovieTickets.Data
 
                         new Actor_Movie()
                         {
-                            ActorId = 1,
+                            ActorId = 2,
                             MovieId = 5
                         },
                         new Actor_Movie()
@@ -312,26 +312,10 @@ namespace MovieTickets.Data
                         {
                             ActorId = 5,
                             MovieId = 5
-                        },
-
-
-                        new Actor_Movie()
-                        {
-                            ActorId = 3,
-                            MovieId = 6
-                        },
-                        new Actor_Movie()
-                        {
-                            ActorId = 4,
-                            MovieId = 6
-                        },
-                        new Actor_Movie()
-                        {
-                            ActorId = 5,
-                            MovieId = 6
                         },
                     });
                     context.SaveChanges();
+
                 }
 
             }
