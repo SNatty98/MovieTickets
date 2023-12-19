@@ -16,7 +16,7 @@ namespace MovieTickets.Controllers
         public async Task<IActionResult> Index()
         {
             var allDirectors = await _context.Directors.ToListAsync();
-            return View();
+            return View("Directors", allDirectors);
         }
     }
 }
