@@ -7,8 +7,11 @@ namespace MovieTickets.Models
         [Key]
         public int DirectorId { get; set; }
 
+        [Display(Name = "Profile Picture")]
         public String ProfilePicture { get; set; }
+        [Display(Name = "Full Name")]
         public String FullName { get; set; }
+        [Display(Name = "Biography")]
         public String Bio { get; set; }
 
         //Relationships

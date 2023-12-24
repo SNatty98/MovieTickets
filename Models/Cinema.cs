@@ -7,8 +7,11 @@ namespace MovieTickets.Models
         [Key]
         public int CinemaID { get; set; }
 
+        [Display(Name = "Logo")]
         public String Logo { get; set; }
+        [Display(Name = "Cinema Name")]
         public String Name { get; set; }
+        [Display(Name = "Description")]
         public String Description { get; set; }
 
         //Relationships

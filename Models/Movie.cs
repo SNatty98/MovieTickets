@@ -9,6 +9,7 @@ namespace MovieTickets.Models
         [Key]
         public int MovieId { get; set; }
 
+        [Display(Name = "Filmography")]
         public String Name { get; set; }
         public String Description { get; set; }
         public double Price { get; set; }
