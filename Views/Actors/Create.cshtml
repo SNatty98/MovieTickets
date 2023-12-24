@@ -1,0 +1,52 @@
+﻿@model Actor
+
+@{
+    ViewData["Title"] = "Create Actor";
+}
+
+<div class="row-text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Add a new Actor</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2 mt-5">
+                <form asp-action="Create">
+                    <div class="text-danger" asp-validation-summary=ModelOnly></div>    
+                </form>
+                <di class="form-group text-center">
+                    <img id="ProfilePicturePreview" />
+                </di>
+                <div class="form-group">
+                    <label class="control-label" asp-for="ProfilePicture"></label>
+                    <input class="form-control" asp-for="ProfilePicture" /> 
+                    <span class="text-danger" asp-validation-for="ProfilePicture"></span>
+                </div>
+                <div class="form-group my-2">
+                    <label class="control-label" asp-for="FullName"></label>
+                    <input class="form-control" asp-for="FullName" />
+                    <span class="text-danger" asp-validation-for="FullName"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label class="control-label" asp-for="Bio"></label>
+                    <input class="form-control" asp-for="Bio" />
+                    <span class="text-danger" asp-validation-for="Bio"></span>
+                </div>
+
+                <div class="form-group mt-4" style="margin-bottom: 450px;">
+                    <input class="btn btn-outline-success float-end" type="submit" value="Create" />
+                    <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $("#ProfilePciture").on("change", function () {
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src = $(this).val();
+        })
+    </script>
+}
