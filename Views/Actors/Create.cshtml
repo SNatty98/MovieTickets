@@ -13,7 +13,6 @@
             <div class="col-md-8 offset-2 mt-5">
                 <form asp-action="Create">
                     <div class="text-danger" asp-validation-summary=ModelOnly></div>    
-                </form>
                 <di class="form-group text-center">
                     <img id="ProfilePicturePreview" />
                 </di>
@@ -37,6 +36,7 @@
                     <input class="btn btn-outline-success float-end" type="submit" value="Create" />
                     <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -44,7 +44,12 @@
 
 @section Scripts {
     <script>
-        $("#ProfilePciture").on("change", function () {
+        $(document).ready(function () {
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src = $("#ProfilePicture").val();
+        })
+
+        $("#ProfilePicture").on("change", function () {
             var output = document.getElementById('ProfilePicturePreview');
             output.src = $(this).val();
         })
