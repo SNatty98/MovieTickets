@@ -1,0 +1,49 @@
+﻿@model Actor
+
+@{
+    ViewData["Title"] = "Create Actor";
+}
+
+<div class="row-text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Details for @Model.FullName</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2 mt-5">
+                    <div class="form-group text-center">
+                        <img id="ProfilePicturePreview" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" asp-for="ProfilePicture"></label>
+                        <input class="form-control" asp-for="ProfilePicture" readonly/>
+                        <span class="text-danger" asp-validation-for="ProfilePicture"></span>
+                    </div>
+                    <div class="form-group my-2">
+                        <label class="control-label" asp-for="FullName"></label>
+                        <input class="form-control" asp-for="FullName" readonly/>
+                        <span class="text-danger" asp-validation-for="FullName"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label class="control-label" asp-for="Bio"></label>
+                        <input class="form-control" asp-for="Bio" readonly/>
+                        <span class="text-danger" asp-validation-for="Bio"></span>
+                    </div>
+
+                    <div class="form-group mt-4" style="margin-bottom: 450px;">
+                        <a class="btn btn-outline-success float-end" asp-action="Edit" asp-route-id="@Model.ActorId">Edit</a>
+                        <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var output = document.getElementById('ProfilePicturePreview');
+            output.src = $("#ProfilePicture").val();
+        })
+    </script>
+}
