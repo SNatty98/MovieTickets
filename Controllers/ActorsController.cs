@@ -28,7 +28,7 @@ namespace MovieTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("FullName,ProfilePicture,Bio")]Actor actor)
+        public async Task<IActionResult> Create([Bind("FullName,ProfilePicture,Bio")] Actor actor)
         {
             if (!ModelState.IsValid)
             {
@@ -43,14 +43,14 @@ namespace MovieTickets.Controllers
         {
             var actorDetails = await _service.GetByIdAsync(id);
 
-            if(actorDetails == null)
+            if (actorDetails == null)
             {
                 return View("NotFound");
             }
             return View(actorDetails);
         }
 
-        //Get actors/create
+        //Get actors/edit/id
         public async Task<IActionResult> Edit(int id)
         {
             var actorDetails = await _service.GetByIdAsync(id);
@@ -70,6 +70,31 @@ namespace MovieTickets.Controllers
                 return View(actor);
             }
             await _service.UpdateAsync(id, actor);
+            return RedirectToAction(nameof(Index));
+        }
+
+        //Delete actors/delete/id
+        public async Task<IActionResult> Delete(int id)
+        {
+            var actorDetails = await _service.GetByIdAsync(id);
+
+            if (actorDetails == null)
+            {
+                return View("NotFound");
+            }
+            return View(actorDetails);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var actorDetails = await _service.GetByIdAsync(id);
+
+            if (actorDetails == null)
+            {
+                return View("NotFound");
+            }
+            await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }
