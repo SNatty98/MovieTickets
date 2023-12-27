@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MovieTickets.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace MovieTickets.Models
 {
-    public class Actor
+    public class Actor : IEntityBase
     {
         [Key]
-        public int ActorId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "ProfilePicture")]
         public String ProfilePicture { get; set; }
